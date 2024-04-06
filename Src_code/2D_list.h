@@ -82,16 +82,13 @@ void storef(path folder, path file, int size, m_node* &head, string date, int co
       append(file, size, date, curr->nextf, curr->tail, count); 
     }
        
-    
-  
     else{
-
-        node* t_head = new node(file, size, date, count);
-        curr->link = temp;
-      
-        temp->nextf = t_head;
-        temp->tail = t_head;
-    }
+            node* t_head = new node(file, size, date, count);
+            curr->link = temp;
+          
+            temp->nextf = t_head;
+            temp->tail = t_head;
+        }
     
     }
 
