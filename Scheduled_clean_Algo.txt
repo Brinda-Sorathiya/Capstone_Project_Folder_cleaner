@@ -7,14 +7,14 @@ Output: Delete the files after 't' minutes
 Steps:
 (1) Store current time of the system using system_clock::now() Function
 (2) While(true) do
-    (1)calculate elapsed time which equals the diffrence between system's current time and already stored time
-    (2)convert elapsed time duration into minutes
-    (3)if(elapsed_minutes >=t)do
+(3) calculate elapsed time which equals the diffrence between system's current time and already stored time
+(4) convert elapsed time duration into minutes
+(5) if(elapsed_minutes >=t)do
     Iterate through the vector of filepaths using for loop,
     if(file exists or its a regular file) do
     delete file using  filesystem::remove function
     end if
-    (4)end for loop
+(5) end for loop
     exit() after deleting the files
     end if
     using sleep_for function to freeze for a short duration to avoid load on CPU
