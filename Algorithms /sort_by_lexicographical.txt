@@ -1,0 +1,26 @@
+Required header file - algorithm, vector
+
+	Algorithm for sortfilebylexicological function
+
+	Input: 2D-Linked list base address
+	Output: sorted file in all folders by lexicological
+
+	Steps: While traveling all nodes of the linked list do
+ 
+	(1) check whether folderpath exists using fs::exists or fs::is_directory, filesystem function.
+	(2) Create a vector of string name file paths that store file paths of the folder.
+	(3) Sort vector lexicological. The files will be sorted by their names in increasing order.
+	(4) create one temporary folder. 
+	(5) move all files from vector to a temporary folder and rename the file path.
+	(6) Move all files from a temporary folder to an origin folder and rename the file path to the origin path.
+	(7)Delete the temporary folder.
+
+	End While.
+
+
+	Let's total number of folders be 'm' and the files in all the folders be n.
+	Time complexity : O(n)
+	Space complexity : O(m)
+
+
+
