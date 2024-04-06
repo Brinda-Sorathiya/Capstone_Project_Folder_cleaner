@@ -15,64 +15,68 @@ using namespace std;
 using namespace filesystem;
 // Define a mapping between extensions and custom directory names
 unordered_map<string, string> extension_to_name = {
-        {".jpg", "photos"},
-        {".pdf", "PDF_FILES"},
-        {".jpeg", "photos"},
-        {".mp4", "videos"},
-        {".mov", "videos"},
-        {".png","photos"},
-        {".cpp","Programming Files" },
-       
+    {".jpg", "photos"},
+    {".pdf", "PDF_FILES"},
+    {".jpeg", "photos"},
+    {".mp4", "videos"},
+    {".mov", "videos"},
+    {".png", "photos"},
+    {".cpp", "Programming Files"},
+
 };
+/*Here we have made an additional function which looks in the
+ folder(containing different type of the files such as images, videos, files containing codes, pdfs) 
+and sort the files according to the extensions and devides the folder into subfolder where each subfolder contains same type of the files*/
+void sort_files(m_node *&list)
+{
+    m_node *trav = list;
+    int folder_count = 1;
 
-//Here we have made an additional function which looks in the folder(containing different type of the files such as images, videos, files containing codes, pdfs) and sort the files according to the extensions and devides the folder into subfolder where each subfolder contains same type of the files
-void sort_files(m_node* &list)
-{    m_node* trav=list;
-    int folder_count=1;
+    while (trav != NULL)
+    {
+        string directory_path = trav->fdr.string(); //Taking directory path from the linked list as a string
 
-    while(trav!=NULL){
-        string directory_path = trav->fdr.string(); // Replace this with the path to your directory
-
-        if (!exists(directory_path) || !is_directory(directory_path)) 
+        if (!exists(directory_path) || !is_directory(directory_path))   //Check whether the path exists
         {
-        cout<< "Directory does not exist or is not a directory." << endl;
-        return ;
+            cout << "Directory does not exist or is not a directory." << endl;
+            return;
         }
 
-        for (const auto& entry : directory_iterator(directory_path)) 
+        for (const auto &entry : directory_iterator(directory_path))    //Iterating through the  directory
         {
-            if (is_regular_file(entry)){
+            if (is_regular_file(entry))         //Check whether its a regular file or some sub folder
+            {
 
-                string extension = entry.path().extension().string();
-                auto it = extension_to_name.find(extension);
+                string extension = entry.path().extension().string();       //stoeing extension of the current file as a string
+                auto it = extension_to_name.find(extension);        //Check if the extension exists in the map defined
 
-                if (it != extension_to_name.end()){    //This codition is used to check whether that extension is there in Map or not,befor creating subfol.
-                string subdirectory_path = directory_path + "/" + it->second;   //it->second corresponds to Sub folder's Name
-                create_directory(subdirectory_path);
+                if (it != extension_to_name.end())
+                {                                                                 //to check whether that extension is there in Map or not,before creating subfol.
+                    string subdirectory_path = directory_path + "/" + it->second; // it->second corresponds to Sub folder's Name
+                    create_directory(subdirectory_path);        //Predefined function in filesystem
                 }
-
             }
         }
 
-        for (const auto& entry : directory_iterator(directory_path)) 
-        {    if (is_regular_file(entry))
-             {
+        for (const auto &entry : directory_iterator(directory_path))    //iterating entire folder again to move the files to new sub folders
+        {
+            if (is_regular_file(entry))
+            {
                 string extension = entry.path().extension().string();
                 auto it = extension_to_name.find(extension);
 
-                if (it != extension_to_name.end()) {
+                if (it != extension_to_name.end())  
+                {
                     string source_path = entry.path().string();
                     string destination_path = directory_path + "/" + it->second + "/" + entry.path().filename().string();
-                    rename(source_path, destination_path);
+                    rename(source_path, destination_path);      //Updating file path to move it to the desired sub foldr.
                 }
-
             }
         }
 
-        cout << "Files in this folder "<<folder_count<<" are sorted based on extensions in the directory." << endl;
+        cout << "Files in this folder " << folder_count << " are sorted based on extensions in the directory." << endl;
         folder_count++;
-        trav=trav->link;
-
+        trav = trav->link;
     }
 }
 #endif
