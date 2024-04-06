@@ -67,7 +67,6 @@ void check_for_empty_file(m_node *&main, stack<path> &history, bool rut, vector<
                     }
                 }
                 delete_node(temp->nextf, curr, prev); // to delete the node which corresponds to the file to be deleted
-                cout << "Flag1\n";
                 if (prev == NULL)
                     prev = temp->nextf;
                 else
