@@ -8,7 +8,7 @@
 #include <string>
 #include <chrono>
 #include <unordered_map>
-#include <chrono>
+#include <vector>
 #include "2D_list.h"
 
 using namespace std::chrono;
@@ -18,78 +18,86 @@ using namespace filesystem;
 #ifndef FUN
 #define FUN
 
-
 // Function for converting a date string to time_t
-void parseDateTime(time_t& timestamp, const char* datetimeString, const char* format) 
+void parseDateTime(time_t &timestamp, const char *datetimeString, const char *format)
 {
     std::istringstream ss(datetimeString);
-    std::tm tmStruct = {};
-    ss >> std::get_time(&tmStruct, format);
-    timestamp = mktime(&tmStruct);
+    std::tm tmStruct = {};                  // Declaring a object for struct tm
+    ss >> std::get_time(&tmStruct, format); // parsing the string into tmstruct object
+                                            // Time is parsed according to the format passed
+    timestamp = mktime(&tmStruct);          // to convert a tm object to an object of time_t type
 }
 
-//Function to calculate the month difference between the current time and the creation time of the file
-int Months_diff(string date2){  
+// Function to calculate the month difference between the current time and the creation time of the file
+int Months_diff(string date2) // To get the time diffrence in months
+{
 
-    const char* datetimeString = date2.c_str();
-    const char* format = "%d/%m/%Y";
+    const char *datetimeString = date2.c_str(); // To intialise pointer to array of characters with the date string
+    const char *format = "%d/%m/%Y";            // Default format for date
     time_t createtime;
-    parseDateTime(createtime, datetimeString, format);
+    parseDateTime(createtime, datetimeString, format); // Calling function to get the date in time_t object
 
-    auto currentitme = system_clock::now();              // Getting the current time
-    time_t cur = system_clock::to_time_t(currentitme);
+    auto currentitme = system_clock::now();            // Getting the current time
+    time_t cur = system_clock::to_time_t(currentitme); // Converting it to time_t
 
-    struct tm mentioned_time, curr_time;        // Convert time_t to tm structures
+    struct tm mentioned_time, curr_time; // Convert time_t to tm structures
     mentioned_time = *localtime(&createtime);
     curr_time = *localtime(&cur);
+    // To caculate the diffrence in months between current time and created date
     int diff = (curr_time.tm_mon + 12 * curr_time.tm_year) - (mentioned_time.tm_mon + 12 * mentioned_time.tm_year);
 
     return diff;
-
 }
+node *compare_diff(node *&curr1, node *&curr2) // Function to compare the month difference between two files
 
-//Function to compare the month difference between two files
-node* compare_diff(node* &curr1, node* &curr2)
-{           string date1 = curr1->date;
-            string date2 = curr2->date;
-           
-            int time1 = Months_diff(date1);
-            int time2 = Months_diff(date2);
+{
+    string date1 = curr1->date; // Getting date from the first node
+    string date2 = curr2->date; // Getting date from the next node
 
-            if(time1 > time2) 
-            return curr1;
+    int time1 = Months_diff(date1);
+    int time2 = Months_diff(date2);
 
-            return curr2;
+    if (time1 > time2)
+        return curr1; // Return pointer to the node which stores the path of older file
+
+    return curr2;
 }
 #endif
-//Function to delete the files old more than N months
-void Delete_files_older_than_N_months(m_node* &main, stack<path> history){
+// Function to delete the files old more than N months
+void Delete_files_older_than_N_months(m_node *&main, stack<path> history, bool rut, vector<string> &store) // Function to delete the files that are older than N months
+{
 
-    m_node* temp = main;
+    m_node *temp = main;
     int folder_count = 1;
-    while(temp != NULL)
+    while (temp != NULL) // Traversing the main linked list
     {
-        node* curr = temp->nextf;
-        node* prev = NULL;
-        while(curr != NULL)
+        node *curr = temp->nextf;
+        node *prev = NULL;
+        while (curr != NULL) // To traverse the file linked list of each folder
         {
-            string date = curr->date;
-            int curr_file_diff = Months_diff(date);
+            string date = curr->date;               // Get the date of the current file as a string
+            int curr_file_diff = Months_diff(date); // Calling the function to get month diffrence
 
-            if(curr_file_diff >= 24){
-                history.push(curr->adr);
-                if(remove(curr->adr.c_str()) == 0)
+            if (curr_file_diff >= 24)
+            {
+                if (rut)
                 {
-                   std:: cout << "The empty file is successfully removed." << endl;
-                } 
-                else 
+                    store.push_back(curr->adr.string());
+                }
+                else
                 {
-                    cerr << "Error removing file: " << curr->adr << endl;
+                    history.push(curr->adr); // To push the path of the file to be deleted
+                    if (remove(curr->adr.c_str()) == 0)
+                    {
+                        cerr << "Error removing file: " << curr->adr << endl;
+                    }
                 }
                 delete_node(temp->nextf, curr, prev);
-               
-                if(prev == NULL) curr = temp->nextf;
-                else curr = prev->next;
+
+                if (prev == NULL)
+                    curr = temp->nextf;
+                else
+                    curr = prev->next;
             }
             else
             {
