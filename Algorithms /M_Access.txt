@@ -1,0 +1,22 @@
+Input Arguments: Node of the 2D linked list, a stack, a vector, a flag indicating user's interest in scheduled cleaning or normal cleaning.
+Output Arguments: Deletes the file which is access less than M times.
+
+	M integer representing the minimum number of times file should have been accesssed for it to be considered for deleteion.
+	A stack of filesystem::path objects, This stack is used to keep a record of the paths of files that have been deleted during the execution of the function.
+
+STEP: While traversing through node of a linked list do:
+
+	(1)it iterates through each file of the directory.
+	(2)Checks if the access count (curr->count) of the current file is less than M.
+  		if the access time is less than M 
+  		if user wants to do normal cleaning then push the file path onto history stack and delete the file
+			if user wants to do scheduled cleaning then push the address of the file into the vector
+	
+  	Calls delete_node() to delete the current file node from the inner linked list.
+  	Continues traversing the inner linked list until all files are checked.
+	End of function.
+
+
+	Let's total number of files in all the folders be n.
+	Time complexity : O(n)
+	Space complexity : O(n)
