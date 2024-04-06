@@ -9,33 +9,35 @@
 #include <string>
 #include <chrono>
 #include <unordered_map>
-#include <chrono>
+#include <vector>
 #include "2D_list.h"
 using namespace std::chrono;
 using namespace std;
 using namespace filesystem;
 
-void delete_less_than_M_access_files(m_node* &main, int M, stack<path> &history)
+void delete_less_than_M_access_files(m_node* &main, int M, stack<path> &history, bool rut, vector<string> &store)   /*Function to delete the 
+                                                                                            files whose access count is lesser than M times*/
 {
-     m_node* temp = main;
+     m_node* temp = main;               // main is the pointer to the first node of the  linked list
 
-    while(temp != NULL){
-        node* curr = temp->nextf;
+    while(temp != NULL){                // To traverse through the entire linked list
+        node* curr = temp->nextf;      // Current points to the first node of the file linked list attached to the node of main linked list
         node* prev = NULL;
 
-        while(curr != NULL){
+        while(curr != NULL){             // To traverse through the sub-linked list at each node of the main list
             if(curr->count < M){
-                history.push(curr->adr);
-                if(remove(curr->adr.c_str()) == 0)
-                {
-                   cout << "The empty file is successfully removed." << endl;
-                } else {
-                    cerr << "Error removing file: " << curr->adr << endl;
+                if(rut){                //rut is true when user goes for scheduled cleaning,false otherwise
+                    store.push_back(curr->adr.string());    
+                }else{
+                    history.push(curr->adr);        // Push the path of the file to be deleted
+                    if(!(remove(curr->adr.c_str()))){
+                        cerr << "Error removing file: " << curr->adr << endl;
+                    }
                 }
-                delete_node(temp->nextf, curr, prev);
+                delete_node(temp->nextf, curr, prev);  // To update the Linked List
                
                 if(prev==NULL)curr = temp->nextf;
-                else curr = prev->next;
+                else curr = prev->next;         // To traverse the next node of sub linked lists
             }else{
                 prev = curr;
                 curr = curr->next;
