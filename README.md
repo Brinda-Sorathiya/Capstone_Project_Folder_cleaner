@@ -36,7 +36,9 @@ Data structures used in the code :
     Here mainly four kinds of data structures used in the code - 2D linked list, stacks, vectors, tuples
 
     2D linked list :
-          Here, we have used 2D linked list. It formed by the combination of the 2 kinds of the node one kind of the node is m_node which it represents the folder and it contains adress of the current folder, head and tail pointer to the linked list of the files in the folder and link to the next pointer. The other kind of the node represents the file and contains some information about the file.
+          Here, we have used 2D linked list. It formed by the combination of 
+    the 2 kinds of the node one kind of the node is m_node which it represents the folder and it contains adress of the current folder,head and tail pointer to the linked list of the files in the folder and link to the next pointer. 
+    The other kind of the node represents the file and contains some information about the file.
           
           Here according to the constrains, two kind of the data structures can be applied - array or linked list. Because number of the files is not fixed so here 2D linked is used to reduce space complexity.Yes, a linked list has linear time direct access worse than an array but in any function of the code it's not needed to do direct access. Also deletion is used many times in the functions which can be easily handled through the 2D linked list in constant time complexity. Also by maintaining the tail pointer new node can be easily appended in constant time complexity.
           
