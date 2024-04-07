@@ -4,7 +4,8 @@ using namespace std;
 namespace fs = std::filesystem;
 using namespace std::chrono;
 //Functiont to do a shedule cleaning of a file
-void cleanFilesAfterInterval(const vector<string> &paths, int interval)                          
+void cleanFilesAfterInterval(const vector<string> &paths, int interval) /*A vector of filepath of the files to be deleted,
+                                                                         interval in minutes after which file has to be deleted */                       
 {   cout<<"wait for "<<interval<<" minutes for file deletion,then the code will run automatically:"<<endl<<endl; //takes input minutes from user 
     auto init_time = steady_clock::now(); //shows current time of system
 
