@@ -71,6 +71,8 @@ int main()
             istringstream iss(line);
             string tfdr, name, date, n;
             int size;
+            if(line.empty())    //if line is empty then skip this line and go next line.
+                continue;
             //As CSV is comma seperated file, we are storing folder path,file name,created date and access count in diffrent variables
             getline(iss, tfdr, ',');   
             getline(iss, name, ',');
