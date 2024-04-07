@@ -1,9 +1,9 @@
 Required header file - algorithm, vector,2D_List.h
 
-	Algorithm for sortfilebylexicological function
+	Algorithm for SortFileLexicographic function
 
 	Input: 2D-Linked list base address
-	Output: sorted file in all folders by lexicological
+	Output: sorted file in all folders by lexicographic order
 
 	Steps: While traveling all m_nodes of the linked list do
  
@@ -19,7 +19,7 @@ Required header file - algorithm, vector,2D_List.h
 
 	Let the total number of the files from the all folders is 'n'
 	Time complexity : O(n)
-	Space complexity : O(1)
+	Space complexity : O(n)
 
 
 
