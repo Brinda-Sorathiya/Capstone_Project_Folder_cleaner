@@ -1,6 +1,6 @@
 # Capstone_Project_Folder_cleaner
 
-##Contribution :
+## Contribution :
 
   Here is the list of the constrains on which each member has worked:
   
