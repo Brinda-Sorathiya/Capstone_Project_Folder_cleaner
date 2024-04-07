@@ -15,8 +15,8 @@
 using namespace std::chrono;
 using namespace std;
 using namespace filesystem;
-
-bool check_for_copy(path p1, path p2) // Function to check if copy of file exists
+ // Function to check if copy of file exists
+bool check_for_copy(path p1, path p2) //takes path of both files 
 {
     ifstream file1(p1); // To read contents of both the files
     ifstream file2(p2);
