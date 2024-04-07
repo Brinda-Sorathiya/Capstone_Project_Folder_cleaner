@@ -4,10 +4,10 @@
 
   Here is the list of the constrains on which each member has worked:
   
-  -> Brinda Sorathiya : 2D_list.h, Redundunt.h,and their algorithms, Calculated Space and time complexity,Make documentation, code debugging
-  -> Mahek Vaghera : M_access.h, Scheduled cleaning, and thier algorithms, additional comments 
-  -> Nisarg Bhatia : Sort_files.h, N_Months.h, and their algorithms and maintained the main function
-  -> Hardik Vala : Content_based_deletion.h, Lexicographical_Sort, and their algorithms and Maintained the main function, Make documentation
+    -> Brinda Sorathiya : 2D_list.h, Redundunt.h,and their algorithms, Calculated Space and time complexity,Make documentation, code debugging
+    -> Mahek Vaghera : M_access.h, Scheduled cleaning, and thier algorithms, additional comments 
+    -> Nisarg Bhatia : Sort_files.h, N_Months.h, and their algorithms and maintained the main function
+    -> Hardik Vala : Content_based_deletion.h, Lexicographical_Sort, and their algorithms and Maintained the main function, Make documentation
 
 
 ## Brief Information:
