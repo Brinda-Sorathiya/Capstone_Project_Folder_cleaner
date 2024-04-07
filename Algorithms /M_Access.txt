@@ -18,6 +18,6 @@ Output Arguments: Deletes the file that is accessed less than M times.
 	End of function.
 
 
-	Let's total number of files in all the folders be n.
+	Let the total sum of the files from all folders is 'n'
 	Time complexity : O(n)
-	Space complexity : O(1)
+	Space complexity : O(n)
