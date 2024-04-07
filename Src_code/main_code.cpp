@@ -70,8 +70,8 @@ int main()
         while (getline(fin, line))
         {
             istringstream iss(line);
-            if(line.empty())                 //to tackle the condition for empty line
-            continue;
+            if(line.empty())          //to tackle the condition for empty line
+            continue;                // to skip the successive lines and cheack for next line untill it's not an empty line.
             string tfdr, name, date, n;
             int size;
             //As CSV is comma seperated file, we are storing folder path,file name,created date and access count in diffrent variables
