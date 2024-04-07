@@ -19,32 +19,32 @@ using namespace filesystem;
 #define FUN
 
 // Function for converting a date string to time_t
-void parseDateTime(time_t &timestamp, const char *datetimeString, const char *format)
+void parseDateTime(time_t &stamp, const char *datetime, const char *format) 
 {
-    std::istringstream ss(datetimeString);
+    std::istringstream ss(datetime);
     std::tm tmStruct = {};                  // Declaring a object for struct tm
     ss >> std::get_time(&tmStruct, format); // parsing the string into tmstruct object
                                             // Time is parsed according to the format passed
-    timestamp = mktime(&tmStruct);          // to convert a tm object to an object of time_t type
+    stamp = mktime(&tmStruct);          // to convert a tm object to an object of time_t type
 }
 
 // Function to calculate the month difference between the current time and the creation time of the file
 int Months_diff(string date2) // To get the time diffrence in months
 {
 
-    const char *datetimeString = date2.c_str(); // To intialise pointer to array of characters with the date string
+    const char *datetime = date2.c_str(); // To intialise pointer to array of characters with the date string
     const char *format = "%d/%m/%Y";            // Default format for date
     time_t createtime;
-    parseDateTime(createtime, datetimeString, format); // Calling function to get the date in time_t object
+    parseDateTime(createtime, datetime, format); // Calling function to get the date in time_t object
 
     auto currentitme = system_clock::now();            // Getting the current time
     time_t cur = system_clock::to_time_t(currentitme); // Converting it to time_t
 
-    struct tm mentioned_time, curr_time; // Convert time_t to tm structures
-    mentioned_time = *localtime(&createtime);
+    struct tm m_time, curr_time; // Convert time_t to tm structures
+    m_time = *localtime(&createtime);
     curr_time = *localtime(&cur);
     // To caculate the diffrence in months between current time and created date
-    int diff = (curr_time.tm_mon + 12 * curr_time.tm_year) - (mentioned_time.tm_mon + 12 * mentioned_time.tm_year);
+    int diff = (curr_time.tm_mon + 12 * curr_time.tm_year) - (m_time.tm_mon + 12 * m_time.tm_year);
 
     return diff;
 }
@@ -68,7 +68,7 @@ void Delete_files_older_than_N_months(m_node *&main, stack<path> history, bool r
 {
 
     m_node *temp = main;
-    int folder_count = 1;
+    int count = 1;
     while (temp != NULL) // Traversing the main linked list
     {
         node *curr = temp->nextf;
@@ -76,9 +76,9 @@ void Delete_files_older_than_N_months(m_node *&main, stack<path> history, bool r
         while (curr != NULL) // To traverse the file linked list of each folder
         {
             string date = curr->date;               // Get the date of the current file as a string
-            int curr_file_diff = Months_diff(date); // Calling the function to get month diffrence
+            int file_diff = Months_diff(date); // Calling the function to get month diffrence
 
-            if (curr_file_diff >= 24)
+            if (file_diff >= 24)
             {
                 if (rut)
                 {
