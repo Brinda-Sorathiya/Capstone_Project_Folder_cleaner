@@ -70,6 +70,7 @@ Algorithm for Delete_files_older_than_N_months Function
 	End while
 
 
-	Let's total number of files in all the folders is n.
+	Let the total number of files in all the folders is 'n'.
 	Time complexity : O(n)
-	Space complexity : O(n)
+	Space complexity : O(1)
+
