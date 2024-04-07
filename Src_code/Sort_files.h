@@ -15,12 +15,12 @@ using namespace std;
 using namespace filesystem;
 // Define a mapping between extensions and custom directory names
 unordered_map<string, string> extension_to_name = {
-    {".jpg", "photos"},
+    {".jpg", "Photos"},
     {".pdf", "PDF_FILES"},
-    {".jpeg", "photos"},
-    {".mp4", "videos"},
-    {".mov", "videos"},
-    {".png", "photos"},
+    {".jpeg", "Photos"},
+    {".mp4", "Videos"},
+    {".mov", "Videos"},
+    {".png", "Photos"},
     {".cpp", "Programming Files"},
 
 };
@@ -47,8 +47,8 @@ void sort_files(m_node *&list)
             if (is_regular_file(entry))         //Check whether its a regular file or some sub folder
             {
 
-                string extension = entry.path().extension().string();       //stoeing extension of the current file as a string
-                auto it = extension_to_name.find(extension);        //Check if the extension exists in the map defined
+                string ext = entry.path().extension().string();       //stoeing extension of the current file as a string
+                auto it = extension_to_name.find(ext);        //Check if the extension exists in the map defined
 
                 if (it != extension_to_name.end())
                 {                                                                 //to check whether that extension is there in Map or not,before creating subfol.
@@ -62,8 +62,8 @@ void sort_files(m_node *&list)
         {
             if (is_regular_file(entry))
             {
-                string extension = entry.path().extension().string();
-                auto it = extension_to_name.find(extension);
+                string ext = entry.path().extension().string();
+                auto it = extension_to_name.find(ext);
 
                 if (it != extension_to_name.end())  
                 {
