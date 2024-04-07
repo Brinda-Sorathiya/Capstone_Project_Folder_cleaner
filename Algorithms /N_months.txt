@@ -7,7 +7,7 @@ Algorithm for parseDateTime Function
 	datetimestring: A pointer to an array of characters that contains date and time in string format
 	format: A pointer to a constant character array specifying the format
 
-	output: To convert the date/time given in the string into time_t data type
+	Output: To convert the date/time given in the string into time_t data type
 
 	Steps:
 	(1) Create an input string stream, ss, initialized with the datetimeString.
@@ -22,8 +22,8 @@ Algorithm for parseDateTime Function
 
 Algorithm for Months_diff
 
-	input: Date in string data type
-	output: Month difference  between Current date and the mentioned one
+	Input: Date in string data type
+	Output: Month difference  between Current date and the mentioned one
 
 	Steps:
 	(1) initialize array of characters with input string
