@@ -1,11 +1,15 @@
 //included the header files that we defined 
-#include "2D_list.h"    
+#include "2D_list.h"    //The predefined headerfiles are already included in these files.
 #include "scheduled.h"
 #include "N_months.h"
 #include "Redundant.h"
 #include "M_access.h"
 #include "Sort_files.h"
-#include "lexicographical_sorting.cpp"
+#include "Lexicograhic_Sort.h"
+#include "Content_based_deleting.h"
+#include <tuple>
+#include <thread>
+vector<tuple<string, node *&, node *, node *&>> vt;
 vector<string> store;   
 stack<path> history;    //A stack is defined globally which stores the paths of files to be deleted
 int main()
@@ -93,7 +97,7 @@ int main()
     
   
     cout << "Do you want to perform normal cleaning of the file or the schedule cleaning(enter \"n\" for normal cleaning and \"s\" for schedulde cleaning)" << endl << endl;
-    cout<<"NOTE: On choosing scheduled cleaning, you need to wait for the time that you would Enter\n ";
+    cout<<endl<<"NOTE: On choosing scheduled cleaning, you need to wait for the time that you would Enter\n ";
     char k;
     cin >> k;
 
@@ -110,7 +114,7 @@ int main()
     cout<<endl << "What is the minimum number of times the file needs to be accessed to avoid deletion?"<<endl;
     cin>>m;
     delete_less_than_M_access_files(list, m, history, rut, store);
-    cout << "Successfully deleted files that have not been accessed atleast"<<m<<"times" << endl;
+    
     Delete_files_older_than_N_months(list, history, rut, store);
     if (k == 's')
     {   int n;
@@ -128,24 +132,37 @@ int main()
         }
         cout << endl;
     }
-        cout<<endl<<"Do you want to sort the files:?(Enter 'y' for yes, 'n' for no)\n";
-        char choice1,choice2;
-        cin>>choice1;
+    char ch;
+  
+    cout<<endl<<"Do you want to search for a file containing a specific word and then delete it?(y/n)\n";
+      cin>>ch;
+    if(ch=='y')
+    {
+     cout << "Enter the keyword" << endl;
+     string key;
+      cin >> key;
+    delete_file_through_content(list,vt, key);   
+    }
 
+      char choice1;
+      string choice2;
+        cout<<endl<<"Do you want to sort the files:?(Enter 'y' for yes, 'n' for no)\n";
+        cin>>choice1;
     if(choice1=='y')
     {  
-        cout << endl << "Do you want to sort the file in lexicographical order : ('Y' or 'y' for yes and 'N' or 'n' for no) : " <<endl;
-        cin>>choice2;
-        if(choice2=='Y' || choice2=='y')
-        { 
-        cout << "Proceeding to Sort the files in lexicographical.\n";
-        SortedFilelexicographical(list);
-        cout << "Files Are Successfully Sorted lexicographical\n";
-        }
-        
-        cout << "Proceeding to sort the files by their extension based sording and make subfolders." << endl;
-        sort_files(list);
-        cout << "Files sorted succesfully sorted their subfolder." << endl;
+        cout<<endl<<"Do you want both,Lexicographical and extension based sorting? or just the one based on lexicographic?(Enter 'both' for 1st choice)"<<endl;
+      cin>>choice2;
+      if(choice2=="both")
+      {
+         SortFileAlplabet(list);
+         sort_files(list);
+        cout << endl<<"Files sorted succesfully into the desired folders." << endl;
+      }
+      else            //By default, if user wants sorting, lexicographic sorting will be carried out
+      {
+         SortFileAlplabet(list);
+         cout<<endl<<"Sorted Successfully in Lexicographical order";
+      }
         
     }
 
