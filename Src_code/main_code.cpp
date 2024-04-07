@@ -13,7 +13,8 @@ vector<tuple<string, node *&, node *, node *&>> vt;
 vector<string> store;   
 stack<path> history;    //A stack is defined globally which stores the paths of files to be deleted
 int main()
-{    cout << "Enter type of input file(enter c for csv and t for txt):"<<endl;      
+{    
+    cout << "Enter type of input file(enter c for csv and t for txt):"<<endl;      
     char c;
     cin >> c;
     m_node *list = nullptr;
