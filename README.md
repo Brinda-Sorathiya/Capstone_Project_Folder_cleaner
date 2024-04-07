@@ -22,14 +22,14 @@
     (4) Word finder
     It finds a specific text file having a word that the user enters deletes that file.
 
-    ** The code takes a specific text file as an input(as given in the problem) which contains the folder's path and other details
+    *** The code takes a specific text file as an input(as given in the problem) which contains the folder's path and other details
      in the following format in each line:
-     Folder_path       File_name    File_creation_Date    Access_count_of_file
+     Folder_path       File_name    File_creation_Date(dd/mm/yyyy)    Access_count_of_file
 
      (NOTE:The above Information is space seperated in the txt file.)
 
 
-    ** For the CSV Input file:
+    *** For the CSV Input file:
     The above input format should be there in CSV file as well with comma(,) seperation instead of space Seperation.
                 
 Data structures used in the code :
