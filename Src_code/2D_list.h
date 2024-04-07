@@ -6,7 +6,7 @@
 #include <string>
 #include <chrono>
 #include <unordered_map>
-#ifndef LIST_H
+#ifndef LIST_H                //Used to avoid redefination of this header file when its included in other header files
 #define LIST_H
 
 using namespace std::chrono;
