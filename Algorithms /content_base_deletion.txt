@@ -1,0 +1,25 @@
+input :The function delete_file_through_content takes two parameters:
+       m_node* list: A pointer to the head of a linked list of nodes. Each node contains a pointer to another linked list of node objects.
+       string key: The keyword to search for in the content of files.
+
+STEP:
+(1) Initialize a temporary pointer temp to the head of the linked list (list).
+(2) Traverse till the end of the file linked list for the current folder.
+(3) Traverse through the inner linked list for files until the end is reached. 
+(4) Open the file using the file address stored in curr->adr.
+    Check if the file is successfully opened, if not, display an error message and return.
+(5) Read each word from the file.
+    If the word matches the given key, 
+    store the details of the file, 
+    including its address, pointers to nodes for deletion, in a tuple vt. 
+    Break out of the loop after finding the key in the file.
+(6) Move node to its next node for the next iteration of the file.
+(7) Move the next node in the outer linked list for the next iteration of foldes.
+(8) If the tuple vt is not empty, it means files containing the keyword were found.
+(9) Print the list of file names.
+(10) If vt is empty, print a message indicating that no file with the keyword exists and return.
+(11) Prompt the user to enter the name of the file they want to delete.
+(12) Iterate through the vector vt.
+(13) If the name matches the name of a file in vt, delete the file using the remove() function and delete the 
+     corresponding node using the delete_node() function.
+(14) Print a success message if the file is successfully deleted and return.
