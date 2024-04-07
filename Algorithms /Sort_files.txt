@@ -22,4 +22,6 @@ Move the file to the corresponding subdirectory.
 
 STEP:3 Traverse to the next node of Linked list and repeat
 
-
+Let the total number of the files existed in all the folders given in input is 'n'
+Time Complexity : O(n)
+Space Complexity : O(1)
