@@ -36,3 +36,12 @@ Data structures used in the code :
             Here is the list of the function in which tuple is used,
             -> from Content_based_deleting.h : delete_file_through_content 
                 // here vector of tuples is used because according to the functionality of the function delete_file_through_content here 4 kind of datas with defferent data types need to be stored so to handle a                       group of different data types tuple is only the optimum way.
+
+Contribution :
+
+        Here is the list of the constrains on which each member is worked,
+
+        -> Brinda Sorathiya : 2D_list.h, Redundunt.h, Calculated Space and time complexity
+        -> Mahek Vaghera : M_access.h, Scheduled cleaning, Wrote the algorithms
+        -> Nisarg Bhatia : Sort_files.h, N_Months.h, Wrote the algorithms
+        -> Hardik Vala : Content_based_deletion.h, Lexicographical_Sort, Maintained the main function 
