@@ -10,7 +10,7 @@ Algorithm for append Function
 	(2) Append the node in the linked list
 	(3) update head and tail pointer
 
-	Time complexity : Let the 'n' is the maximum number of the files contained by the same folder so the time complexity would be O(m)
+	Time complexity : Let the 'n' is the maximum number of the files contained by the same folder so the time complexity would be O(n)
 	space complexity : O(1)
 
 
