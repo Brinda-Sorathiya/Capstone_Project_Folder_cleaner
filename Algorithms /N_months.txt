@@ -1,0 +1,54 @@
+Required header file- Chrono
+Algorithm for parseDateTime Function
+Input:
+timestamp: A reference to a time_t type variable
+datetimestring: A pointer to an array of characters that contains date and time in string format
+format: A pointer to a constant character array specifying the format
+
+output: To convert the date/time given in the string into time_t data type
+
+Steps:
+(1) Create an input string stream, ss, initialized with the datetimeString.
+(2) Create an object of tm struct and initialise it with all zeroes.
+(3) Parse the time from the input string stream into the tm_struct object in the format specified
+(4) Using mktime function, convert the object of tm into time_t
+
+Algorithm for Months_diff
+
+input: Date in sring data type
+output: Month diffrence  between Current date and mentioned one
+
+Steps:
+(1) initialise array of characters with input string
+(2) initialise a const char pointer for the format
+(3) call parseDateTime function passing first argument as the object of tm struct type
+(4) Initialise auto type variable "current_time" with system_clock::now() function 
+(5) Create and initialise a struct tm object for current and mentioned time
+(6) Calculate the diffrence
+
+
+Algorithm For compare_diff 
+
+Input: Pointers to two nodes of the 2D list
+Output: Returns Pointer to the node for the file which is older
+
+Steps:
+(1) Initialise two dates variables with the strings dtored in the nodes
+(2) Call the Months_diff function for both the dates and store their results into two int variables
+(3) return pointer to the node for which the stored date is older
+
+
+Algorithm for Delete_files_older_than_N_months Function
+
+Input: Pointer to the head of linked list, reference to the stack History
+output: Deletes the file which is older than N Months
+
+Steps 1: While traversing each node of the Linked list do:
+   (1) initialise Curr pointer pointing to the nodes of the linked list attached to each node of main list
+   (2) Traverse through each node of the file linked list
+   (3) Take the date in string form from each node and pass into Months_diff()
+   (4) If diffrence is greater than N months, push the file path into the stack
+   (5) Delete the node
+   (6) Repeat the same till the end of Linked list
+End while
+
