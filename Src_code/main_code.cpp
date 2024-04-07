@@ -154,13 +154,13 @@ int main()
       cin>>choice2;
       if(choice2=="both")
       {
-         SortFileAlplabet(list);
+         SortFileLexicographic(list);
          sort_files(list);
         cout << endl<<"Files sorted succesfully into the desired folders." << endl;
       }
       else            //By default, if user wants sorting, lexicographic sorting will be carried out
       {
-         SortFileAlplabet(list);
+         SortFileLexicographic(list);
          cout<<endl<<"Sorted Successfully in Lexicographical order";
       }
         
