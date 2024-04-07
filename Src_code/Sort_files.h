@@ -30,19 +30,19 @@ and sort the files according to the extensions and devides the folder into subfo
 void sort_files(m_node *&list)
 {
     m_node *trav = list;
-    int folder_count = 1;
+    int count = 1;
 
     while (trav != NULL)
     {
-        string directory_path = trav->fdr.string(); //Taking directory path from the linked list as a string
+        string path = trav->fdr.string(); //Taking directory path from the linked list as a string
 
-        if (!exists(directory_path) || !is_directory(directory_path))   //Check whether the path exists
+        if (!exists(path) || !is_directory(path))   //Check whether the path exists
         {
             cout << "Directory does not exist or is not a directory." << endl;
             return;
         }
 
-        for (const auto &entry : directory_iterator(directory_path))    //Iterating through the  directory
+        for (const auto &entry : directory_iterator(path))    //Iterating through the  directory
         {
             if (is_regular_file(entry))         //Check whether its a regular file or some sub folder
             {
@@ -52,13 +52,13 @@ void sort_files(m_node *&list)
 
                 if (it != extension_to_name.end())
                 {                                                                 //to check whether that extension is there in Map or not,before creating subfol.
-                    string subdirectory_path = directory_path + "/" + it->second; // it->second corresponds to Sub folder's Name
-                    create_directory(subdirectory_path);        //Predefined function in filesystem
+                    string subfolder_path = path + "/" + it->second; // it->second corresponds to Sub folder's Name
+                    create_directory(subfolder_path);        //Predefined function in filesystem
                 }
             }
         }
 
-        for (const auto &entry : directory_iterator(directory_path))    //iterating entire folder again to move the files to new sub folders
+        for (const auto &entry : directory_iterator(path))    //iterating entire folder again to move the files to new sub folders
         {
             if (is_regular_file(entry))
             {
@@ -68,14 +68,14 @@ void sort_files(m_node *&list)
                 if (it != extension_to_name.end())  
                 {
                     string source_path = entry.path().string();
-                    string destination_path = directory_path + "/" + it->second + "/" + entry.path().filename().string();
-                    rename(source_path, destination_path);      //Updating file path to move it to the desired sub foldr.
+                    string final_path = path + "/" + it->second + "/" + entry.path().filename().string();
+                    rename(source_path, final_path);      //Updating file path to move it to the desired sub foldr.
                 }
             }
         }
 
-        cout << "Files in this folder " << folder_count << " are sorted based on extensions in the directory." << endl;
-        folder_count++;
+        cout << "Files in this folder " << count << " are sorted based on extensions in the directory." << endl;
+        count++;
         trav = trav->link;
     }
 }
