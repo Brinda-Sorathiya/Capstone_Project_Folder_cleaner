@@ -1,7 +1,10 @@
-input :The function delete_file_through_content takes three parameters:
+Input :The function delete_file_through_content takes three parameters:
        m_node* list: A pointer to the head of a linked list of nodes. Each node contains a pointer to another linked list of node objects.
        string key: The keyword to search for in the content of files.
        A vector of tuples passed by reference
+
+Output : Delete file which contain user given word and filepath
+
 
 STEP:
 (1) Initialize a temporary pointer temp to the head of the linked list (list).
