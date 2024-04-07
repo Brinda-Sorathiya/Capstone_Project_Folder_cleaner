@@ -1,6 +1,6 @@
 # Capstone_Project_Folder_cleaner
-### Brief Information:
-Inportant Note: TO enhance readability of the code, we have defined our own header files which are then included in our main code. All those extra header files are also uploaded.
+## Brief Information:
+**Important Note** : TO enhance readability of the code, we have defined our own header files which are then included in our main code. All those extra header files are also uploaded.
              All those extra files must be downloaded on the system before running the code.
              
              Also, an existing header file -filesystem- is used which **requires C++17**. Older versions of Compiler might not support filesystem.
