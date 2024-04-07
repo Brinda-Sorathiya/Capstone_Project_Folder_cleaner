@@ -5,12 +5,12 @@ Output: Files are sorted in Main Folder
 
 STEP:1 While Traversing each node through the Linked list do:
     (1) Check whether the directory exists or not
-      if directory exists do for each directory
-      Iterate through each file of the directory
+        if directory exists do for each directory
+        Iterate through each file of the directory
     (2) For each file, check for the file extension
-     Search for the file extension in the map
-     If extension is found in the map do
-     define path for new subdirectory and create the directory
+        Search for the file extension in the map
+        If extension is found in the map do
+        define path for new subdirectory and create the directory
 End while
 
 STEP:2
