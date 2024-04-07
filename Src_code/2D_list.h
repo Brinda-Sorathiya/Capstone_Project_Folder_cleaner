@@ -37,7 +37,8 @@ class m_node{
         m_node(path a) : fdr(a), nextf(nullptr), link(nullptr), tail(nullptr) {};
 };
 
-void append(path adr, int size, string date, node* &head, node* &tail, int count) //To append node to the link list
+void append(path adr, int size, string date, node* &head, node* &tail, int count) /*To append node to the link it takes  Path of the file,size,date,
+                                                                             count for number of times files is accessed,head and tail pointer of Linked list*/
 {
     node* temp = new node(adr, size, date, count);
 
