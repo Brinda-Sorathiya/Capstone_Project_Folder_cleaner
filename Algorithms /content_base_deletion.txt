@@ -12,7 +12,7 @@ STEP:
 (3) Traverse through the inner linked list for files until the end is reached. 
 (4) Open the file using the file address stored in curr->adr.
     Check if the file is successfully opened, if not, display an error message and return.
-(5) Read each word from the file.
+(5) Read each word from the file. and also make valid word with punctuation marks.
     If the word matches the given key, 
     store the details of the file, 
     including its address, pointers to nodes for deletion, in a vector vt. 
