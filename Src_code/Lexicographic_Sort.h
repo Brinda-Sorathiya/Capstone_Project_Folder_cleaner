@@ -14,7 +14,7 @@ namespace fs = std::filesystem;
 using namespace std;
 using namespace std::chrono;
 
-void SortFileAlplabet(m_node *temp) //Function to sort the files based on lexicographical order
+void SortFileLexicographic(m_node *temp) //Function to sort the files based on lexicographical order
 {
 
     while (temp != NULL)        //To traverse through the linked list
