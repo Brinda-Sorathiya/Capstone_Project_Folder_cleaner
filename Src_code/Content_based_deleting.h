@@ -64,7 +64,7 @@ void delete_file_through_content(m_node *&list,vector<tuple<string, node *&, nod
         {
             remove(path);
             delete_node(get<1>(it), get<2>(it), get<3>(it));    //To update the linked list
-           cout<<"Successfully deleted\n";
+            cout<<"Successfully deleted\n";
             return;
         }
     }
