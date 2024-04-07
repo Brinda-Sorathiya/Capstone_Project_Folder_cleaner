@@ -22,4 +22,4 @@ Steps:
 
 Let the time interval is denoted by 'x' and the number of the files need to be deleted is denoted by 'n' then,
 Time Complexity : O(x+n)  //beacause here outer loop is running for the x times and than at the last time loop runs it checks in the vector of files need to be                                   deleted
-Space Complexity : O(1)
+Space Complexity : O(n)
