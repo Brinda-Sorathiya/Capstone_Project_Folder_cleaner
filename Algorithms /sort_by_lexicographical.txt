@@ -18,9 +18,9 @@ Required header file - algorithm, vector
 	End While.
 
 
-	Let's total number of folders be 'm' and the files in all the folders be n.
+	Let the total number of the files from the all folders is 'n'
 	Time complexity : O(n)
-	Space complexity : O(m)
+	Space complexity : O(1)
 
 
 
