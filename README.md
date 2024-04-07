@@ -74,7 +74,7 @@ Data structures used in the code :
            -> from Sort_files.h : sort_files
            //The reason for using an unordered map is because it stores the file extensions as keys and sub folders' names as values, which is then 
     used to sort the files based on their extensions and create a sub folder for file of each extension. Unorderd map is preferred because it has a
-    search time complexity O(n) in worst case unlike an ordered map in which search has worst case time complexity O(log n).
+    search time complexity O(1) in average case unlike an ordered map in which search has time complexity O(log n).
      
 Contribution :
 
