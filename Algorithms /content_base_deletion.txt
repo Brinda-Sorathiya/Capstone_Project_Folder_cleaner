@@ -24,3 +24,7 @@ STEP:
 (13) If the name matches the name of a file in vt, delete the file using the remove() function and delete the 
      corresponding node using the delete_node() function.
 (14) Print a success message if the file is successfully deleted and return.
+
+Let the total size of the 2D linked list is denoted by 'n' and total size of the vector of tuples is denoted by 'x' and 'm' is the maximum number of the words present in a single file among the all files then,
+Time Complexity : O(n*m)
+Space Complexity : O(n+x)
