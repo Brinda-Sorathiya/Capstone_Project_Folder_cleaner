@@ -71,9 +71,9 @@ Data structures used in the code :
 
 Contribution :
 
-        Here is the list of the constrains on which each member is worked,
+        Here is the list of the constrains on which each member has worked:
 
-        -> Brinda Sorathiya : 2D_list.h, Redundunt.h, Calculated Space and time complexity
-        -> Mahek Vaghera : M_access.h, Scheduled cleaning, Wrote the algorithms
-        -> Nisarg Bhatia : Sort_files.h, N_Months.h, Wrote the algorithms
-        -> Hardik Vala : Content_based_deletion.h, Lexicographical_Sort, Maintained the main function 
+        -> Brinda Sorathiya : 2D_list.h, Redundunt.h,and their algorithms, Calculated Space and time complexity
+        -> Mahek Vaghera : M_access.h, Scheduled cleaning, and thier algorithms, additional comments 
+        -> Nisarg Bhatia : Sort_files.h, N_Months.h, and their algorithms and maintained the main Function
+        -> Hardik Vala : Content_based_deletion.h, Lexicographical_Sort, algorithms and Maintained the main function 
