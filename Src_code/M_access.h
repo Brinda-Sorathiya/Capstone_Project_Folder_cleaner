@@ -29,8 +29,8 @@ void delete_less_than_M_access_files(m_node* &main, int M, stack<path> &history,
                     store.push_back(curr->adr.string());    
                 }else{
                     history.push(curr->adr);        // Push the path of the file to be deleted
-                    if(!(remove(curr->adr.c_str()))){
-                        cerr << "Error removing file: " << curr->adr << endl;
+                    if(!(remove(curr->adr.c_str()))){ // checks the result of remove()
+                        cerr << "Error removing file: " << curr->adr << endl; // Print an error message indicating the failure to remove the file 
                     }
                 }
                 delete_node(temp->nextf, curr, prev);  // To update the Linked List
