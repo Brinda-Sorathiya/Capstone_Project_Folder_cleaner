@@ -6,8 +6,8 @@
 #include <tuple>
 #include <thread>
 using namespace std;
-vector<tuple<string, node *&, node *, node *&>> vt;
-void delete_file_through_content(m_node *&list, string key) //This function is to delete the files  which contain a specific word in their content
+
+void delete_file_through_content(m_node *&list,vector<tuple<string, node *&, node *, node *&>> &vt,string key) //This function is to delete the files  which contain a specific word in their content
 
 {
     m_node *temp = list;    
