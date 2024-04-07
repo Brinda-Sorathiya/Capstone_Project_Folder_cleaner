@@ -36,7 +36,7 @@ int main()
         while (getline(fin, line))         //reading the input text file line by line 
         {
             if(line.empty())                //to tackle the condition for empty line
-            continue;
+            continue; // to skip the successive lines and cheack for next line untill it's not an empty line.
             istringstream iss(line);    //istringstream is used to parse the string into diffrent variables
             string tfdr, name, date;
             int size, count;
