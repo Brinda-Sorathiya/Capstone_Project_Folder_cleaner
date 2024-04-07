@@ -1,4 +1,5 @@
 Algorithm of cleanFilesAfterInterval Function
+
 Using Filesystem and chrono as addidtional required headerfiles
 Input(Argument): A vector of filepath of the files to be deleted
                 interval 't' in minutes after which file has to be deleted
@@ -9,7 +10,7 @@ Steps:
 (2) While(true) do
 (3) calculate elapsed time which equals the diffrence between system's current time and already stored time
 (4) convert elapsed time duration into minutes
-(5) if(elapsed_minutes >=t)do
+(5) if (elapsed_minutes >=t) do
     Iterate through the vector of filepaths using for loop,
     if(file exists or its a regular file) do
     delete file using  filesystem::remove function
@@ -21,5 +22,6 @@ Steps:
     end while
 
 Let the time interval is denoted by 'x' and the number of the files need to be deleted is denoted by 'n' then,
-Time Complexity : O(x+n)  //beacause here outer loop is running for the x times and than at the last time loop runs it checks in the vector of files need to be                                   deleted
+Time Complexity : O(x+n)  
+          //beacause here outer loop is running for the x times and than at the last time loop runs it checks in the vector              of files need to be deleted
 Space Complexity : O(n)
