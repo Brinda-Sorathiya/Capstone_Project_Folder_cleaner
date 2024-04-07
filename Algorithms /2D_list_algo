@@ -1,1 +1,57 @@
+Algorithm for append Function
 
+	Input(Function Argument):
+	Path of the file,size,date, count for number of times files is accessed,head and tail pointer of Linked list
+
+	Output: Appends new node for the liked list file
+
+	Steps:
+	(1) Allocate memory for the node
+	(2) Append the node in the linked list
+	(3) update head and tail pointer
+
+	Time complexity : Let the 'n' is the maximum number of the files contained by the same folder so the time complexity would be O(n)
+	space complexity : O(1)
+
+
+Algorithm for storef Function (to form a linked list)
+
+	input: path of folder, path of file present in that folder, int size 
+       		head and tail pointer for file's linked list, count for file accessed
+	output: Stores entire info in 2D linked List
+
+	Steps:
+	(1) Allocate memory for node of main linked list and store in it the folder path
+	(2) if head is null do
+	 allcoate memory for the node of file linked list and initialise all members
+	 Update the head pointer
+	 exit()
+	 End if
+	 (3) Traverse till the end of the file linked list for the current folder
+	 if the path entered is found in linked list do
+	 exit the loop
+	 end if
+	 (4) else if do (When node for that folder is not there in the linked list)
+	     Allocate memory for node storing the file path for the current folder
+	     Append the node, storing the path of the folder, to the linked list
+	     Append file node to the previous node
+	     end if
+
+	Time Complexity : Let the 'm' is the total number of the folders than time complexity is O(n) 
+	Space Complexity : O(1)
+
+
+Algorithm for Delete node
+
+	Input: header pointer,pointers to current and previous node(passed by reference)
+	Output: Deletes the current node from the Linked list
+
+	Steps:
+	(1) If current node = head node
+	    update head pointer
+	    exit()
+	    end if
+	 update pointers of previous node and delete the current node
+
+	Time Complexity : O(1)
+	Space Complexity : O(1)
