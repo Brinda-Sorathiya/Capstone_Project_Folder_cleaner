@@ -7,16 +7,15 @@ Required header file - algorithm, vector,2D_List.h
 
 	Steps: While traveling all m_nodes of the linked list do
  
-	(1) check whether folderpath exists using fs::exists or fs::is_directory, filesystem function.
-	(2) Create a vector of string name file paths that store file paths of the folder.
-	(3) Sort vector lexicological. The files will be sorted by their names in increasing order.
-	(4) create one temporary folder. 
-	(5) move all files from vector to a temporary folder and rename the file path.
+	(1) Check whether folderpath exists using fs::exists or fs::is_directory, filesystem function.
+	(2) Create a vector of string name filePaths that store file paths of the folder.
+	(3) Sort vector elemnts(paths) lexicological. The files will be sorted by their names in increasing order.
+	(4) Create one temporary folder. 
+	(5) Move all files from vector to a temporary folder and rename the file path.
 	(6) Move all files from a temporary folder to an original folder and rename the file path to the original path.
-	(7)Delete the temporary folder.
+	(7) Delete the temporary folder.
 
 	End While.
-
 
 	Let the total number of the files from the all folders is 'n'
 	Time complexity : O(n)
