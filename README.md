@@ -1,4 +1,15 @@
 # Capstone_Project_Folder_cleaner
+
+##Contribution :
+
+  Here is the list of the constrains on which each member has worked:
+  
+  -> Brinda Sorathiya : 2D_list.h, Redundunt.h,and their algorithms, Calculated Space and time complexity,Make documentation, code debugging
+  -> Mahek Vaghera : M_access.h, Scheduled cleaning, and thier algorithms, additional comments 
+  -> Nisarg Bhatia : Sort_files.h, N_Months.h, and their algorithms and maintained the main function
+  -> Hardik Vala : Content_based_deletion.h, Lexicographical_Sort, and their algorithms and Maintained the main function, Make documentation
+
+
 ## Brief Information:
 **Important Note** : TO enhance readability of the code, we have defined our own header files which are then included in our main code. All those extra header files are also uploaded.
              All those extra files must be downloaded on the system before running the code.
@@ -81,11 +92,3 @@ Data structures used in the code :
     used to sort the files based on their extensions and create a sub folder for file of each extension. Unorderd map is preferred because it has a
     search time complexity O(1) in average case unlike an ordered map in which search has time complexity O(log n).
      
-Contribution :
-
-        Here is the list of the constrains on which each member has worked:
-
-        -> Brinda Sorathiya : 2D_list.h, Redundunt.h,and their algorithms, Calculated Space and time complexity,Make documentation, code debugging
-        -> Mahek Vaghera : M_access.h, Scheduled cleaning, and thier algorithms, additional comments 
-        -> Nisarg Bhatia : Sort_files.h, N_Months.h, and their algorithms and maintained the main function
-        -> Hardik Vala : Content_based_deletion.h, Lexicographical_Sort, and their algorithms and Maintained the main function, Make documentation
