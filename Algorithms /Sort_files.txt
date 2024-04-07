@@ -1,12 +1,12 @@
-input: List pointer pointing to the first node of Linked list of folders
-      Each Node of Link list points to the linked list of files
-      Map storing the extensions and names for folder
-output: Files are sorted in Main Folder
+Input: List pointer pointing to the first node of Linked list of folders
+       Each Node of Link list points to the linked list of files
+       Map storing the extensions and names for folder
+Output: Files are sorted in Main Folder
 
 STEP:1 While Traversing each node through the Linked list do:
     (1) Check whether the directory exists or not
       if directory exists do for each directory
-     Iterate through each file of the directory
+      Iterate through each file of the directory
     (2) For each file, check for the file extension
      Search for the file extension in the map
      If extension is found in the map do
@@ -16,7 +16,7 @@ End while
 STEP:2
 (1) Iterate through each file again.
 (2) For each file, extract the file extension.
- Look up the extension in the extension_to_name map.
+    Look up the extension in the extension_to_name map.
 (3) If the extension is found in the map:
 Move the file to the corresponding subdirectory.
 
