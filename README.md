@@ -1,7 +1,39 @@
 # Capstone_Project_Folder_cleaner
+### Brief Information:
+Inportant Note: TO enhance readability of the code, we have defined our own header files which are then included in our main code. All those extra header files are also uploaded.
+             All those extra files must be downloaded on the system before running the code.
+             
+             Also, an existing header file -filesystem- is used which **requires C++17**. Older versions of Compiler might not support filesystem.
 
+    Our C++ code works as a folder cleaner to remove the following kind of files:
+    (1) Empty files
+    (2) Files whose Copies exist
+    (3) Files which haven't been accesssed for atleast some specific number of times.
+    (4) Files older than a specific period of time
+       - User enters a specific time as an input and based on that the above feature executes.
+
+    In addition to this, we have added four additional features to make the folder cleaner more efficient. Following are the additional featurs:
+    (1) Sorting the files based on the extension
+    -Sub folders are created and files based on the extension are pushed to the desired sub folders
+    (2) Sorting on the basis of lexicographical order
+    (3) Scheduled cleaning
+    The above feature provides the user with a choice of scheduling the cleaning process of a specific folder. Although the normal/Immediate 
+    cleaning feature is also provided and user is asked to select either of them
+    (4) Word finder
+    It finds a specific text file having a word that the user enters deletes that file.
+
+    ** The code takes a specific text file as an input(as given in the problem) which contains the folder's path and other details
+     in the following format in each line:
+     Folder_path       File_name    File_creation_Date    Access_count_of_file
+
+     (NOTE:The above Information is space seperated in the txt file.)
+
+
+    ** For the CSV Input file:
+    The above input format should be there in CSV file as well with comma(,) seperation instead of space Seperation.
+                
 Data structures used in the code :
-    Here mainly for kind of data structures used in the code - 2D linked list, stacks, vectors, tuples
+    Here mainly four kinds of data structures used in the code - 2D linked list, stacks, vectors, tuples
 
     2D linked list :
           Here, we have used 2D linked list. It formed by the combination of the 2 kinds of the node one kind of the node is m_node which it represents the folder and it contains adress of the current folder,            head and tail pointer to the linked list of the files in the folder and link to the next pointer.  The other kind of the node represents the file and contains some information about the file. 
