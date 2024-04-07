@@ -11,14 +11,14 @@ Algorithm for append Function
 	(3) update head and tail pointer
 
 	Time complexity : Let the 'n' is the maximum number of the files contained by the same folder so the time complexity would be O(n)
-	space complexity : O(1)
+	Space complexity : O(1)
 
 
 Algorithm for storef Function (to form a linked list)
 
-	input: path of folder, path of file present in that folder, int size 
+	Input: path of folder, path of file present in that folder, int size 
        		head and tail pointer for file's linked list, count for file accessed
-	output: Stores entire info in 2D linked List
+	Output: Stores entire info in 2D linked List
 
 	Steps:
 	(1) Allocate memory for node of main linked list and store in it the folder path
