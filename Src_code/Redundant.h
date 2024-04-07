@@ -51,7 +51,7 @@ void check_for_empty_file(m_node *&main, stack<path> &history, bool rut, vector<
         node *prev = NULL;
 
         while (curr != NULL) // To traverse the sub linked list attached at each node
-        {
+        {   
             if (std::filesystem::is_empty(curr->adr)) // If file is empty
             {
                 if (rut)
@@ -61,12 +61,22 @@ void check_for_empty_file(m_node *&main, stack<path> &history, bool rut, vector<
                 else
                 {
                     history.push(curr->adr);            // Push to stack
-                    if (remove(curr->adr.c_str()) == 0) // Remove file from the folder
+                    if ((remove(curr->adr.c_str())!=0)) // Remove file from the folder
                     {
                         cerr << "Error removing file: " << curr->adr << endl;
                     }
                 }
                 delete_node(temp->nextf, curr, prev); // to delete the node which corresponds to the file to be deleted
+                m_node* temp = main;
+    while(temp != NULL){
+        cout << "folder : " << temp->fdr << endl;
+        node* curr = temp->nextf;
+        while (curr != NULL){
+            cout << "file" << curr->adr << endl;
+            curr = curr->next;
+        }
+        temp = temp->link;
+    }
                 if (prev == NULL)
                     prev = temp->nextf;
                 else
@@ -128,37 +138,45 @@ void check_for_redundant_file(m_node *&main, stack<path> &history, bool rut, vec
                             if (rut)
                             {
                                 store.push_back(del->adr.string());
+                            }else{
+                                history.push(del->adr);
+                                remove(del->adr.c_str()); // Delete the older file
                             }
-                            history.push(del->adr);
-                            remove(del->adr); // Delete the older file
-
                             pt = del->adr;
                             if (del == head1)
                             {
-                                delete_node(temp1->nextf, head1, prev1); // updating the linked list
-                                head1 = prev1;
+                                delete_node(temp1->nextf, head1, prev1); 
+                                if(prev1==NULL) head1 = temp1->nextf;
+                                else head1 = prev1->next;
                             }
                             else
                             {
                                 key = false;
                                 delete_node(temp2->nextf, head2, prev2);
-
-                                head2 = prev2->next;
+                                if(prev2 == NULL) head2 = temp2->nextf;
+                                else head2 = prev2->next;
                             }
+                        }else{
+                            prev2 = head2;
+                            head2 = head2->next;
                         }
                     }
                     else if (key)
-                    {
+                    {   
                         prev2 = head2;
                         head2 = head2->next;
                     }
+                   
                 }
                 temp2 = temp2->link;
+                
             }
             prev1 = head1;
             head1 = head1->next; // To traverse the next node
+           
         }
         temp1 = temp1->link; // To traverse the next node
+       
     }
 }
 
