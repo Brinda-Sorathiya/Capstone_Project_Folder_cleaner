@@ -1,0 +1,51 @@
+Algorithm for check for copy
+	Input : path of the two files which user needs to compare
+	Output : Answer whether both files are copy of each other or not
+	
+	Step:
+	(1) Open both file 
+		if not opening than print error massage
+	(2) Iterate over the content of both files through loop
+	(3) If both files are copy of each other than return true
+		else return false
+
+	Let the size of the both files is 'x' then,
+	Time Complexity : O(x)
+	Space Complexity : O(1)
+
+Algorithm for the function check for empty
+	Input : Node of the 2D linked list, a stack, a vector, a flag indicating user's interest in scheduled cleaning or normal cleaning
+	Output : Deletes files which are empty
+
+	Step:
+	(1) Iterates through each folder
+	(2) In particular folder iterate through each file of the folder
+	(3) Check if the current file is empty then 
+		If user wants to schedule cleaning then push the path of the file into the vector
+		If user wants to do normal cleaning then push the file into the stack and remove it
+	(4)delete the node of the file which is removed
+	(5)moving the node ahead
+	
+	Let the total number of the files from all folders is 'n' then,
+	Time Complexity : O(n)
+	Space Complexity : O(1)
+
+Algorithm for the function check for redundant file
+	Input : Node of the 2D linked list, a stack, a vector, a flag indicating user's interest in scheduled cleaning or normal cleaning
+	Output : Deletes the older version of the file whose copy is exist
+
+	Step:
+	(1) Iterate through each node of the 2D linked list
+	(2) Again iterate through each node of the list and compare each node with the other node and check whether both files are copy of each other
+	(3) If both are copy then remove the older version of the file
+	(4) Delete the node of the removed file
+	(5) Move ahead in the loop
+
+	Let the total number of the files from the all folders is 'n' then,
+	Time Complexity : O(n^2)
+	Space Complexity : O(1)
+
+ 
+
+
+ 
