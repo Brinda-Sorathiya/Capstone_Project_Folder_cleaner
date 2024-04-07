@@ -33,9 +33,10 @@ int main()
         }
 
         string line;
-        while (getline(fin, line))
+        while (getline(fin, line))         //reading the input text file line by line 
         {
-
+            if(line.empty())                //to tackle the condition for empty line
+            continue;
             istringstream iss(line);    //istringstream is used to parse the string into diffrent variables
             string tfdr, name, date;
             int size, count;
@@ -48,7 +49,7 @@ int main()
             size = file_size(file);     //To fnd the size of each file
 
             path folder = tfdr;
-            storef(folder, file, size, list, date, count);  /*Using storef func. defined in 2D_list header file to insert all data in Linked list*/
+            storef(folder, file, size, list, date, count);  /Using storef func. defined in 2D_list header file to insert all data in Linked list/
         }
     }
     else
@@ -69,10 +70,10 @@ int main()
         while (getline(fin, line))
         {
             istringstream iss(line);
+            if(line.empty())                 //to tackle the condition for empty line
+            continue;
             string tfdr, name, date, n;
             int size;
-            if(line.empty())    //if line is empty then skip this line and go next line.
-                continue;
             //As CSV is comma seperated file, we are storing folder path,file name,created date and access count in diffrent variables
             getline(iss, tfdr, ',');   
             getline(iss, name, ',');
@@ -98,7 +99,7 @@ int main()
         }
     }
     
-  
+    
     cout << "Do you want to perform normal cleaning of the file or the schedule cleaning(enter \"n\" for normal cleaning and \"s\" for schedulde cleaning)" << endl << endl;
     cout<<endl<<"NOTE: On choosing scheduled cleaning, you need to wait for the time that you would Enter\n ";
     char k;
@@ -141,9 +142,10 @@ int main()
       cin>>ch;
     if(ch=='y')
     {
-     cout << "Enter the keyword" << endl;
+     cout << "Enter the keyword:" << endl;
      string key;
       cin >> key;
+    cout<<" Wait for some time till the code searches the word in all text files:"<<endl;
     delete_file_through_content(list,vt, key);   
     }
 
@@ -171,3 +173,4 @@ int main()
 
     return 0;
 }
+
