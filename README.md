@@ -68,7 +68,14 @@ Data structures used in the code :
             Here is the list of the function in which tuple is used,
             -> from Content_based_deleting.h : delete_file_through_content 
                 // here vector of tuples is used because according to the functionality of the function delete_file_through_content here 4 kind of datas with defferent data types need to be stored so to handle a                       group of different data types tuple is only the optimum way.
-
+                
+    Unordered_map :
+           Here is the list of the function in which tuple is used,
+           -> from Sort_files.h : sort_files
+           //The reason for using an unordered map is because it stores the file extensions as keys and sub folders' names as values, which is then 
+    used to sort the files based on their extensions and create a sub folder for file of each extension. Unorderd map is preferred because it has a
+    search time complexity O(n) in worst case unlike an ordered map in which search has worst case time complexity O(log n).
+     
 Contribution :
 
         Here is the list of the constrains on which each member has worked:
