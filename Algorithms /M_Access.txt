@@ -20,4 +20,4 @@ Output Arguments: Deletes the file that is accessed less than M times.
 
 	Let's total number of files in all the folders be n.
 	Time complexity : O(n)
-	Space complexity : O(n)
+	Space complexity : O(1)
