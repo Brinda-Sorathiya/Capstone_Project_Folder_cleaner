@@ -28,7 +28,7 @@ Algorithm for the function check for empty
 	
 	Let the total number of the files from all folders is 'n' then,
 	Time Complexity : O(n)
-	Space Complexity : O(1)
+	Space Complexity : O(n)
 
 Algorithm for the function check for redundant file
 	Input : Node of the 2D linked list, a stack, a vector, a flag indicating user's interest in scheduled cleaning or normal cleaning
@@ -43,9 +43,4 @@ Algorithm for the function check for redundant file
 
 	Let the total number of the files from the all folders is 'n' then,
 	Time Complexity : O(n^2)
-	Space Complexity : O(1)
-
- 
-
-
- 
+	Space Complexity : O(n)
