@@ -83,4 +83,4 @@ Contribution :
         -> Brinda Sorathiya : 2D_list.h, Redundunt.h,and their algorithms, Calculated Space and time complexity
         -> Mahek Vaghera : M_access.h, Scheduled cleaning, and thier algorithms, additional comments 
         -> Nisarg Bhatia : Sort_files.h, N_Months.h, and their algorithms and maintained the main Function
-        -> Hardik Vala : Content_based_deletion.h, Lexicographical_Sort, algorithms and Maintained the main function 
+        -> Hardik Vala : Content_based_deletion.h, Lexicographical_Sort, and their algorithms and Maintained the main function 
