@@ -24,6 +24,7 @@ void SortFileLexicographic(m_node *temp) //Function to sort the files based on l
         if ((!fs::exists(temp->fdr)) || !fs::is_directory(temp->fdr))   
         {
             cout << "Error: Invalid folder path : temp->fdr" << endl;
+            cout << "Plese modify folder path in text or csv file." << endl;
             temp = temp->link;
             continue;
         }
@@ -55,14 +56,14 @@ void SortFileLexicographic(m_node *temp) //Function to sort the files based on l
         // Move files to temporary folder
         for (const auto &b : Paths)
         {
-            string n_Path = tmFolder + "/" + b.filename().string();
-            fs::rename(b, n_Path);
+            string n_Path = tmFolder + "/" + b.filename().string();  
+            fs::rename(b, n_Path);  //convert path into new path
         }
 
         // Move files back to original folder
         for (const auto &c : fs::directory_iterator(tmFolder))
         {
-            fs::rename(c.path(), temp->fdr.string() + "/" + c.path().filename().string());
+            fs::rename(c.path(), temp->fdr.string() + "/" + c.path().filename().string());   //convert path into original path
         }
 
         // Remove temporary folder
