@@ -1,0 +1,9 @@
+Let the total number of the files in the txt or xls file is 'n', 
+After the performing all operations let the size of the stack 'history' is 'p',
+After the performing all operations let the size of the vector 'store' is 'p',
+    //both are 'p' beacause if user wants to do normal cleaning then it 'p' files are pushed into the stack oherwise in case of scheduled cleaning 'p' files are pushed into the vector
+After the performing all opration let the size of the vector of tuples is 'k',
+then,
+
+    Time complexity : O(n) //due to the iteration over each row of the input file
+    Space complexity : O(n + p + k)     // n is also the space complexity of the 2D linked list
